@@ -1,11 +1,13 @@
 package com.recrutement.entretien;
 
+import com.recrutement.entretien.exception.CreneauException;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Objects;
 
-public class Crenau {
+public class Creneau{
 
     private final LocalDate date;
 
@@ -13,10 +15,12 @@ public class Crenau {
 
     private final LocalTime heureFin;
 
-    public Crenau(LocalDateTime dateDebut, int dureeMinute) {
+    public Creneau(LocalDateTime dateDebut, int dureeMinute) throws CreneauException {
         this.date = dateDebut.toLocalDate();
         this.heureDebut = dateDebut.toLocalTime();
         this.heureFin = this.heureDebut.plusMinutes(dureeMinute);
+
+        throw new CreneauException(dureeMinute);
     }
 
     public LocalDate getDate() {
@@ -35,10 +39,10 @@ public class Crenau {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Crenau crenau = (Crenau) o;
-        return date.equals(crenau.date) &&
-                heureDebut.equals(crenau.heureDebut) &&
-                heureFin.equals(crenau.heureFin);
+        Creneau creneau = (Creneau) o;
+        return date.equals(creneau.date) &&
+                heureDebut.equals(creneau.heureDebut) &&
+                heureFin.equals(creneau.heureFin);
     }
 
     @Override
