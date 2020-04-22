@@ -1,4 +1,7 @@
 package com.recrutement.entretien;
 
-public class Statut {
+public enum Statut {
+    PLANIFIE,
+    CONFIRME,
+    ANNULE
 }
