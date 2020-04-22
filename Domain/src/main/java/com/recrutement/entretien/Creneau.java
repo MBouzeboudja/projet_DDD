@@ -2,9 +2,11 @@ package com.recrutement.entretien;
 
 import com.recrutement.entretien.exception.CreneauException;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Calendar;
 import java.util.Objects;
 
 public class Creneau{
@@ -16,11 +18,16 @@ public class Creneau{
     private final LocalTime heureFin;
 
     public Creneau(LocalDateTime dateDebut, int dureeMinute) throws CreneauException {
+        if(dureeMinute <30){
+            throw new CreneauException(dureeMinute);
+        }
+        if(dateDebut.getDayOfWeek() == DayOfWeek.SATURDAY || dateDebut.getDayOfWeek() == DayOfWeek.SUNDAY){
+            throw new CreneauException(dateDebut.toLocalDate());
+        }
         this.date = dateDebut.toLocalDate();
         this.heureDebut = dateDebut.toLocalTime();
         this.heureFin = this.heureDebut.plusMinutes(dureeMinute);
 
-        throw new CreneauException(dureeMinute);
     }
 
     public LocalDate getDate() {

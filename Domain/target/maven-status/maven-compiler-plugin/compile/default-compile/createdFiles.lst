@@ -1,2 +1,6 @@
+com\recrutement\entretien\Candidat.class
 com\recrutement\entretien\Creneau.class
 com\recrutement\entretien\exception\CreneauException.class
+com\recrutement\entretien\Recruteur.class
+com\recrutement\entretien\Statut.class
+com\recrutement\entretien\Entretien.class

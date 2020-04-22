@@ -7,6 +7,6 @@ public class CreneauException extends RuntimeException {
         super("La durée du créneau est inférieure à 30 minutes");
     }
     public CreneauException(LocalDate date){
-        super("La durée du créneau est inférieure à 30 minutes");
+        super("La date du créneau n'est pas un jour ouvrable");
     }
 }
