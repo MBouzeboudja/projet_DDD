@@ -80,6 +80,7 @@ public class Entretien {
     public void confirmer(){
         setStatut(Statut.CONFIRME);
     }
+
     public void annuler(String raisonAnnulation){
         setStatut(Statut.ANNULE);
         setRaisonAnnulation(raisonAnnulation);
