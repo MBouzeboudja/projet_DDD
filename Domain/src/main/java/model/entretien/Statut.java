@@ -1,4 +1,4 @@
-package com.recrutement.entretien;
+package model.entretien;
 
 public enum Statut {
     PLANIFIE,

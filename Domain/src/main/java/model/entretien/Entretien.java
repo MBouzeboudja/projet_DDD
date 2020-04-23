@@ -1,4 +1,8 @@
-package com.recrutement.entretien;
+package model.entretien;
+
+import model.personne.Candidat;
+import model.personne.Recruteur;
+import model.salle.Salle;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -11,13 +15,15 @@ public class Entretien {
     private Recruteur recruteur;
     private Candidat candidat;
     private String raisonAnnulation;
+    private Salle salle;
 
-    public Entretien(Creneau creneau, Recruteur recruteur, Candidat candidat) {
+    public Entretien(Creneau creneau, Recruteur recruteur, Candidat candidat, Salle salle) {
         this.entretienId = new EntretienID(UUID.randomUUID());
         setStatut(Statut.PLANIFIE);
         this.creneau = creneau;
         this.recruteur = recruteur;
         this.candidat = candidat;
+        this.salle = salle;
     }
 
     public EntretienID getEntretienId() {
@@ -62,6 +68,14 @@ public class Entretien {
 
     public void setRaisonAnnulation(String raison) {
         this.raisonAnnulation = raison;
+    }
+
+    public Salle getSalle() {
+        return salle;
+    }
+
+    public void setSalle(Salle salle) {
+        this.salle = salle;
     }
 
     @Override

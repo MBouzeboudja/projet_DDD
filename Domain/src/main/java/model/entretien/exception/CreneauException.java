@@ -1,4 +1,4 @@
-package com.recrutement.entretien.exception;
+package model.entretien.exception;
 
 import java.time.LocalDate;
 

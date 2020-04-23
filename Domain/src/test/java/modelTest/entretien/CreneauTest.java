@@ -1,7 +1,7 @@
-package com.recrutement.entretienTest;
+package modelTest.entretien;
 
-import com.recrutement.entretien.Creneau;
-import com.recrutement.entretien.exception.CreneauException;
+import model.entretien.Creneau;
+import model.entretien.exception.CreneauException;
 import org.junit.Assert;
 import org.junit.Test;
 

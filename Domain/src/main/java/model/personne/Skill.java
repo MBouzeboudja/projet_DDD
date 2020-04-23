@@ -1,4 +1,4 @@
-package com.recrutement.entretien;
+package model.personne;
 
 public class Skill {
     private final String nom;

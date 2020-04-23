@@ -1,4 +1,4 @@
-package com.recrutement.entretien;
+package model.personne;
 
 import java.util.List;
 

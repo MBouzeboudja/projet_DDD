@@ -1,12 +1,11 @@
-package com.recrutement.entretien;
+package model.entretien;
 
-import com.recrutement.entretien.exception.CreneauException;
+import model.entretien.exception.CreneauException;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Calendar;
 import java.util.Objects;
 
 public class Creneau{
