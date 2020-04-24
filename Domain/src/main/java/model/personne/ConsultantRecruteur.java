@@ -64,8 +64,6 @@ public class ConsultantRecruteur {
     public boolean couvreLesSkills(List<Skill> skills){
         if(!techSkills.containsAll(skills)) return false;
         for (Skill skill: skills ) {
-            System.out.println(techSkills.get(techSkills.indexOf(skill)).getNom());
-            System.out.println(skill.getNom());
             if(!techSkills.get(techSkills.indexOf(skill)).comparerQualification(skill))return false;
         }
         return true;

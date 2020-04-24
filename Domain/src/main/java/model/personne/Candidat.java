@@ -2,8 +2,10 @@ package model.personne;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 public class Candidat {
+    private final UUID candidatID;
     private final String nom;
     private final int anneeXP;
     private final String mail;
@@ -11,7 +13,8 @@ public class Candidat {
     private final List<Skill> softSkills;
     private final String cvUrl;
 
-    public Candidat(String nom, int anneeXP, String mail, List<Skill> techSkills, List<Skill> softSkills, String cvUrl) {
+    public Candidat(UUID candidatID, String nom, int anneeXP, String mail, List<Skill> techSkills, List<Skill> softSkills, String cvUrl) {
+        this.candidatID = candidatID;
         this.nom = nom;
         this.anneeXP = anneeXP;
         this.mail = mail;
@@ -22,6 +25,10 @@ public class Candidat {
 
     public String getNom() {
         return nom;
+    }
+
+    public UUID getCandidatID() {
+        return candidatID;
     }
 
     public int getAnneeXP() {
@@ -50,6 +57,7 @@ public class Candidat {
         if (!(o instanceof Candidat)) return false;
         Candidat candidat = (Candidat) o;
         return getAnneeXP() == candidat.getAnneeXP() &&
+                Objects.equals(getCandidatID(), candidat.getCandidatID()) &&
                 Objects.equals(getNom(), candidat.getNom()) &&
                 Objects.equals(getMail(), candidat.getMail()) &&
                 Objects.equals(getTechSkills(), candidat.getTechSkills()) &&
@@ -59,6 +67,6 @@ public class Candidat {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNom(), getAnneeXP(), getMail(), getTechSkills(), getSoftSkills(), getCvUrl());
+        return Objects.hash(getCandidatID(), getNom(), getAnneeXP(), getMail(), getTechSkills(), getSoftSkills(), getCvUrl());
     }
 }

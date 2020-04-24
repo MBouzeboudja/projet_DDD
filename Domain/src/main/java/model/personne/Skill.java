@@ -37,15 +37,10 @@ public class Skill{
 
     public boolean comparerQualification(Skill skill){
         if(this.getNom() != skill.getNom())return false;
-        System.out.println(this.getNiveau().ordinal());
-        System.out.println(skill.getNiveau().ordinal());
-
         if(this.getNiveau().ordinal() >=  skill.getNiveau().ordinal()){
             return true;
         }
         return false;
     }
-
-
 
 }

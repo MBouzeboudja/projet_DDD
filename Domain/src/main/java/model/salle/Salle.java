@@ -53,4 +53,5 @@ public class Salle {
     public Localisation getLocalisation() {
         return localisation;
     }
+
 }

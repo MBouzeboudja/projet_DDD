@@ -34,7 +34,7 @@ public class CreneauTest {
         LocalDateTime date = LocalDateTime.of(LocalDate.of(2020, 04, 26), LocalTime.of(18, 00));
         assertThrows(CreneauException.class,
                 ()->{
-                    Creneau c = new Creneau(date, 40);
+                    Creneau c = new Creneau(date, 80);
                 });
     }
 

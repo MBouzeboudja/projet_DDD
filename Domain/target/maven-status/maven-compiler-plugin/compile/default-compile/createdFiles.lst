@@ -1,5 +1,6 @@
 model\salle\Equipement.class
 model\personne\Niveau.class
+model\personne\ConsultantRecruteurs.class
 model\entretien\EntretienID.class
 model\salle\Localisation.class
 model\personne\Candidat.class
