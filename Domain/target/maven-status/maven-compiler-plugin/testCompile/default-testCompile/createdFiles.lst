@@ -1,3 +1,6 @@
-modelTest\entretien\EntretienTest.class
+use_caseTest\entretien\PlanificationEntretienTest.class
+use_caseTest\entretien\infrastructure\ConsultantRecruteursTest.class
 modelTest\entretien\CreneauTest.class
+use_caseTest\entretien\infrastructure\SallesTest.class
 modelTest\personne\ConsultantRecruteurTest.class
+modelTest\entretien\EntretienTest.class

@@ -28,7 +28,7 @@ public class ConsultantRecruteursTest implements ConsultantRecruteurs {
                 8,
                 "martin@soat.fr",
                 Arrays.asList(new Skill("java", Niveau.CONFIRME), new  Skill("nodejs", Niveau.EXPERT)),
-                Arrays.asList(LocalDate.parse("2020-05-08"), LocalDate.parse("2020-05-12"), LocalDate.parse("2020-05-08"), LocalDate.parse("2020-05-13"))
+                Arrays.asList(LocalDate.parse("2020-05-08"), LocalDate.parse("2020-05-12"),  LocalDate.parse("2020-05-13"))
         ));
 
         consultantRecruteurList.add(new ConsultantRecruteur(
@@ -36,7 +36,7 @@ public class ConsultantRecruteursTest implements ConsultantRecruteurs {
                 25,
                 "george@soat.fr",
                 Arrays.asList(new Skill("Python", Niveau.EXPERT), new  Skill("C", Niveau.DEBUTANT)),
-                Arrays.asList(LocalDate.parse("2020-05-11"), LocalDate.parse("2020-05-13"), LocalDate.parse("2020-05-08"), LocalDate.parse("2020-05-17"))
+                Arrays.asList(LocalDate.parse("2020-05-11"), LocalDate.parse("2020-05-13"), LocalDate.parse("2020-05-17"))
         ));
 
         return consultantRecruteurList;

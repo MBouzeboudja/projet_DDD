@@ -16,10 +16,7 @@ import org.junit.Test;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class EntretienTest {
 
@@ -36,7 +33,7 @@ public class EntretienTest {
         candidatTechSkills.add(soft);
         List<LocalDate> dispo = new ArrayList<>();
         dispo.add(LocalDate.of(2020, 04, 30));
-        Candidat candidat = new Candidat("Yohann", 1, "bunu@gmail.com", candidatTechSkills, candidatSkills, "bunu.cv.ru");
+        Candidat candidat = new Candidat(UUID.fromString("38400000-8cf0-11bd-b23e-10b96e4ef00d"), "Yohann", 1, "bunu@gmail.com", candidatTechSkills, candidatSkills, "bunu.cv.ru");
         ConsultantRecruteur consultantRecruteur = new ConsultantRecruteur("Andrea", 2, "sauce@gmail.com",recSkills, dispo );
         Localisation localisation = new Localisation("2 rue des Bois jolis", "A", "3");
         List<Equipement> equipements = new ArrayList<Equipement>();
@@ -46,6 +43,11 @@ public class EntretienTest {
         equipements.add(Equipement.ORDINATEUR);
         Salle salle = new Salle("A32","A32", localisation, equipements, 15);
         return new Entretien(creneau, consultantRecruteur, candidat, salle);
+    }
+    @Test
+    public void cree_entretien(){
+        Entretien entretien = creerEntretien();
+        Assert.assertNotNull(entretien.getEntretienId());
     }
     @Test
     public void confirme_entretien(){

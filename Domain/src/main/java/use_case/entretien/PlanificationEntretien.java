@@ -17,12 +17,12 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-public class CreerEntretien {
+public class PlanificationEntretien {
     private final Candidats candidats;
     private final ConsultantRecruteurs consultantRecruteurs;
     private final Salles salles;
 
-    public CreerEntretien(Candidats candidats, ConsultantRecruteurs consultantRecruteurs, Salles salles) {
+    public PlanificationEntretien(Candidats candidats, ConsultantRecruteurs consultantRecruteurs, Salles salles) {
         this.candidats = candidats;
         this.consultantRecruteurs = consultantRecruteurs;
         this.salles = salles;
