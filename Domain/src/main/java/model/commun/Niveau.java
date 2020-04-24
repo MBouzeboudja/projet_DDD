@@ -1,4 +1,4 @@
-package model.personne;
+package model.commun;
 
 public enum Niveau {
     DEBUTANT,

@@ -1,4 +1,6 @@
-package model.personne;
+package model.candidat;
+
+import model.commun.Skill;
 
 import java.util.List;
 import java.util.Objects;
@@ -56,13 +58,7 @@ public class Candidat {
         if (this == o) return true;
         if (!(o instanceof Candidat)) return false;
         Candidat candidat = (Candidat) o;
-        return getAnneeXP() == candidat.getAnneeXP() &&
-                Objects.equals(getCandidatID(), candidat.getCandidatID()) &&
-                Objects.equals(getNom(), candidat.getNom()) &&
-                Objects.equals(getMail(), candidat.getMail()) &&
-                Objects.equals(getTechSkills(), candidat.getTechSkills()) &&
-                Objects.equals(getSoftSkills(), candidat.getSoftSkills()) &&
-                Objects.equals(getCvUrl(), candidat.getCvUrl());
+        return Objects.equals(getCandidatID(), candidat.getCandidatID());
     }
 
     @Override

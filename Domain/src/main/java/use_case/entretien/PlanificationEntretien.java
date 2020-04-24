@@ -1,14 +1,13 @@
 package use_case.entretien;
 
 import exposition.EntretienRequest;
+import model.candidat.Candidat;
+import model.candidat.Candidats;
+import model.consultantRecruteur.ConsultantRecruteur;
+import model.consultantRecruteur.ConsultantRecruteurs;
+import model.consultantRecruteur.exception.ConsultantRecruteurException;
 import model.entretien.Creneau;
 import model.entretien.Entretien;
-import model.entretien.Entretiens;
-import model.personne.Candidat;
-import model.personne.Candidats;
-import model.personne.ConsultantRecruteur;
-import model.personne.ConsultantRecruteurs;
-import model.personne.exception.ConsultantRecruteurException;
 import model.salle.Salle;
 import model.salle.Salles;
 import model.salle.exception.SalleException;
@@ -28,7 +27,7 @@ public class PlanificationEntretien {
         this.salles = salles;
     }
 
-    public Entretien creerEntretien(EntretienRequest request){
+    public Entretien creerEntretien(EntretienRequest request) throws ConsultantRecruteurException, SalleException{
 
         Candidat candidat = candidats.trouveCandidat(request.getCandidatID());
 

@@ -1,12 +1,12 @@
 package modelTest.entretien;
 
+import model.candidat.Candidat;
+import model.commun.Niveau;
+import model.commun.Skill;
+import model.consultantRecruteur.ConsultantRecruteur;
 import model.entretien.Creneau;
 import model.entretien.Entretien;
 import model.entretien.Statut;
-import model.personne.Candidat;
-import model.personne.Niveau;
-import model.personne.ConsultantRecruteur;
-import model.personne.Skill;
 import model.salle.Equipement;
 import model.salle.Localisation;
 import model.salle.Salle;
@@ -16,7 +16,9 @@ import org.junit.Test;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 public class EntretienTest {
 
@@ -48,6 +50,7 @@ public class EntretienTest {
     public void cree_entretien(){
         Entretien entretien = creerEntretien();
         Assert.assertNotNull(entretien.getEntretienId());
+        Assert.assertEquals(entretien.getStatut(), Statut.PLANIFIE);
     }
     @Test
     public void confirme_entretien(){

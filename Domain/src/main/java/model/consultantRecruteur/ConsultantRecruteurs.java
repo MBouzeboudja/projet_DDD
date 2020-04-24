@@ -1,7 +1,6 @@
-package model.personne;
+package model.consultantRecruteur;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface ConsultantRecruteurs {
     public List<ConsultantRecruteur> trouverConsultantRecruteurs(String date);

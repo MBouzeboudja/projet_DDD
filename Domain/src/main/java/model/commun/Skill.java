@@ -1,6 +1,5 @@
-package model.personne;
+package model.commun;
 
-import java.util.Comparator;
 import java.util.Objects;
 
 public class Skill{

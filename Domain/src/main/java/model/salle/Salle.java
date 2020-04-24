@@ -2,9 +2,8 @@ package model.salle;
 
 import model.salle.exception.SalleException;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 public class Salle {
     private final String salleID;
@@ -54,5 +53,18 @@ public class Salle {
 
     public Localisation getLocalisation() {
         return localisation;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Salle)) return false;
+        Salle salle = (Salle) o;
+        return  Objects.equals(getSalleID(), salle.getSalleID());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getSalleID(), getNom(), getLocalisation(), getEquipement(), getCapacite());
     }
 }

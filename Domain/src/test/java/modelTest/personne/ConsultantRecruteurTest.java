@@ -1,19 +1,14 @@
 package modelTest.personne;
 
-import model.entretien.Entretien;
-import model.entretien.Statut;
-import model.personne.ConsultantRecruteur;
-import model.personne.Niveau;
-import model.personne.Skill;
+import model.commun.Niveau;
+import model.commun.Skill;
+import model.consultantRecruteur.ConsultantRecruteur;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.awt.image.AreaAveragingScaleFilter;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class ConsultantRecruteurTest {
 

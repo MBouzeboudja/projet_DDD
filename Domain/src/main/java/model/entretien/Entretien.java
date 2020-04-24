@@ -1,7 +1,7 @@
 package model.entretien;
 
-import model.personne.Candidat;
-import model.personne.ConsultantRecruteur;
+import model.candidat.Candidat;
+import model.consultantRecruteur.ConsultantRecruteur;
 import model.salle.Salle;
 
 import java.util.Objects;
