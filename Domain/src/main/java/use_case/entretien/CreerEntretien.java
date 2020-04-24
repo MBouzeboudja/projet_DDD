@@ -20,13 +20,11 @@ import java.util.Optional;
 public class CreerEntretien {
     private final Candidats candidats;
     private final ConsultantRecruteurs consultantRecruteurs;
-    private final Entretiens entretiens;
     private final Salles salles;
 
-    public CreerEntretien(Candidats candidats, ConsultantRecruteurs consultantRecruteurs, Entretiens entretiens, Salles salles) {
+    public CreerEntretien(Candidats candidats, ConsultantRecruteurs consultantRecruteurs, Salles salles) {
         this.candidats = candidats;
         this.consultantRecruteurs = consultantRecruteurs;
-        this.entretiens = entretiens;
         this.salles = salles;
     }
 
