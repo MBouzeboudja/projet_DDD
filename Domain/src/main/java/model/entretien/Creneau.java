@@ -16,17 +16,26 @@ public class Creneau{
 
     private final LocalTime heureFin;
 
+    private static final LocalTime LIMITE_FIN_ENTRETIEN = LocalTime.of(21,0);
+    private static final LocalTime LIMITE_DEBUT_ENTRETIEN = LocalTime.of(18,0);
+
     public Creneau(LocalDateTime dateDebut, int dureeMinute) throws CreneauException {
-        if(dureeMinute <30){
-            throw new CreneauException(dureeMinute);
+        if(dureeMinute <60){
+            throw new CreneauException("Le créneau est inférieur à une heure");
         }
         if(dateDebut.getDayOfWeek() == DayOfWeek.SATURDAY || dateDebut.getDayOfWeek() == DayOfWeek.SUNDAY){
-            throw new CreneauException(dateDebut.toLocalDate());
+            throw new CreneauException("La date du créneau n'est pas un jour ouvrable");
         }
         this.date = dateDebut.toLocalDate();
         this.heureDebut = dateDebut.toLocalTime();
         this.heureFin = this.heureDebut.plusMinutes(dureeMinute);
 
+        if(heureDebut.isBefore(LIMITE_DEBUT_ENTRETIEN)){
+            throw new CreneauException("Le créneau commence trop tôt");
+        }
+        if(heureFin.isAfter(LIMITE_FIN_ENTRETIEN)){
+            throw new CreneauException("Le créneau se fini trop tard");
+        }
     }
 
     public LocalDate getDate() {

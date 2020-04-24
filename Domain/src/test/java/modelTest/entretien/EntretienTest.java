@@ -5,7 +5,7 @@ import model.entretien.Entretien;
 import model.entretien.Statut;
 import model.personne.Candidat;
 import model.personne.Niveau;
-import model.personne.Recruteur;
+import model.personne.ConsultantRecruteur;
 import model.personne.Skill;
 import model.salle.Equipement;
 import model.salle.Localisation;
@@ -17,13 +17,15 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class EntretienTest {
 
     private Entretien creerEntretien(){
-        LocalDateTime date = LocalDateTime.of(LocalDate.of(2020, 04, 30), LocalTime.of(14, 00));
-        Creneau creneau = new Creneau(date, 45);
+        LocalDateTime date = LocalDateTime.of(LocalDate.of(2020, 04, 30), LocalTime.of(18, 00));
+        Creneau creneau = new Creneau(date, 75);
         Skill tech = new Skill("java", Niveau.CONFIRME);
         Skill soft = new Skill("japonais", Niveau.DEBUTANT);
         List<Skill> recSkills = new ArrayList<Skill>();
@@ -32,8 +34,10 @@ public class EntretienTest {
         candidatSkills.add(tech);
         List<Skill> candidatTechSkills = new ArrayList<Skill>();
         candidatTechSkills.add(soft);
-        Candidat candidat = new Candidat("yohann", 1, "bunu@gmail.com", candidatTechSkills, candidatSkills);
-        Recruteur recruteur = new Recruteur("Andrea", 2, "sauce@gmail.com",recSkills );
+        List<LocalDate> dispo = new ArrayList<>();
+        dispo.add(LocalDate.of(2020, 04, 30));
+        Candidat candidat = new Candidat("Yohann", 1, "bunu@gmail.com", candidatTechSkills, candidatSkills, "bunu.cv.ru");
+        ConsultantRecruteur consultantRecruteur = new ConsultantRecruteur("Andrea", 2, "sauce@gmail.com",recSkills, dispo );
         Localisation localisation = new Localisation("2 rue des Bois jolis", "A", "3");
         List<Equipement> equipements = new ArrayList<Equipement>();
         equipements.add(Equipement.CHAISE);
@@ -41,9 +45,8 @@ public class EntretienTest {
         equipements.add(Equipement.TABLEAU);
         equipements.add(Equipement.ORDINATEUR);
         Salle salle = new Salle("A32","A32", localisation, equipements, 15);
-        return new Entretien(creneau, recruteur, candidat, salle);
+        return new Entretien(creneau, consultantRecruteur, candidat, salle);
     }
-
     @Test
     public void confirme_entretien(){
         Entretien entretien = creerEntretien();
@@ -56,8 +59,6 @@ public class EntretienTest {
         entretien.annuler("Le recruteur est absent");
         Assert.assertEquals(entretien.getStatut(), Statut.ANNULE);
     }
-
-
     @Test
     public void entretiens_differents(){
         Entretien entretien = creerEntretien();

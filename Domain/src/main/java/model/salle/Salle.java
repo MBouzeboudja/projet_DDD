@@ -1,5 +1,7 @@
 package model.salle;
 
+import model.salle.exception.SalleException;
+
 import java.util.List;
 
 public class Salle {
@@ -8,8 +10,12 @@ public class Salle {
     private final Localisation localisation;
     private List<Equipement> equipement;
     private int capacite;
+    private static final int CAPACITE_MINIMALE = 2;
 
-    public Salle(String salleID, String nom, Localisation localisation, List<Equipement> equipement, int capacite) {
+    public Salle(String salleID, String nom, Localisation localisation, List<Equipement> equipement, int capacite) throws SalleException{
+        if(capacite<CAPACITE_MINIMALE){
+            throw new SalleException("La capacité est inférieure à la capacité minimale");
+        }
         this.salleID = salleID;
         this.nom = nom;
         this.localisation = localisation;

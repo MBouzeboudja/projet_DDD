@@ -1,7 +1,7 @@
 package model.entretien;
 
 import model.personne.Candidat;
-import model.personne.Recruteur;
+import model.personne.ConsultantRecruteur;
 import model.salle.Salle;
 
 import java.util.Objects;
@@ -12,16 +12,16 @@ public class Entretien {
     private final EntretienID entretienId;
     private Statut statut;
     private Creneau creneau;
-    private Recruteur recruteur;
+    private ConsultantRecruteur consultantRecruteur;
     private Candidat candidat;
     private String raisonAnnulation;
     private Salle salle;
 
-    public Entretien(Creneau creneau, Recruteur recruteur, Candidat candidat, Salle salle) {
+    public Entretien(Creneau creneau, ConsultantRecruteur consultantRecruteur, Candidat candidat, Salle salle) {
         this.entretienId = new EntretienID(UUID.randomUUID());
         setStatut(Statut.PLANIFIE);
         this.creneau = creneau;
-        this.recruteur = recruteur;
+        this.consultantRecruteur = consultantRecruteur;
         this.candidat = candidat;
         this.salle = salle;
     }
@@ -46,12 +46,12 @@ public class Entretien {
         this.creneau = creneau;
     }
 
-    public Recruteur getRecruteur() {
-        return recruteur;
+    public ConsultantRecruteur getConsultantRecruteur() {
+        return consultantRecruteur;
     }
 
-    public void setRecruteur(Recruteur recruteur) {
-        this.recruteur = recruteur;
+    public void setConsultantRecruteur(ConsultantRecruteur consultantRecruteur) {
+        this.consultantRecruteur = consultantRecruteur;
     }
 
     public Candidat getCandidat() {
@@ -88,7 +88,7 @@ public class Entretien {
 
     @Override
     public int hashCode() {
-        return Objects.hash(entretienId, statut, creneau, recruteur, candidat);
+        return Objects.hash(entretienId, statut, creneau, consultantRecruteur, candidat);
     }
 
     public void confirmer(){

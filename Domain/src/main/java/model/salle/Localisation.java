@@ -1,5 +1,7 @@
 package model.salle;
 
+import java.util.Objects;
+
 public class Localisation {
     private final String adresse;
     private final String batiment;
@@ -21,5 +23,20 @@ public class Localisation {
 
     public String getEtage() {
         return etage;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Localisation)) return false;
+        Localisation that = (Localisation) o;
+        return Objects.equals(getAdresse(), that.getAdresse()) &&
+                Objects.equals(getBatiment(), that.getBatiment()) &&
+                Objects.equals(getEtage(), that.getEtage());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getAdresse(), getBatiment(), getEtage());
     }
 }

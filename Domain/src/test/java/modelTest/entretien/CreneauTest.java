@@ -15,27 +15,44 @@ public class CreneauTest {
 
     @Test
     public void heure_de_fin_valide(){
-        LocalDateTime date = LocalDateTime.of(LocalDate.of(2020, 04, 30), LocalTime.of(14, 00));
-        Creneau c = new Creneau(date, 45);
-        Assert.assertEquals(c.getHeureFin(), LocalTime.of(14,45));
+        LocalDateTime date = LocalDateTime.of(LocalDate.of(2020, 04, 30), LocalTime.of(18, 00));
+        Creneau c = new Creneau(date, 60);
+        Assert.assertEquals(c.getHeureFin(), LocalTime.of(19,00));
     }
 
     @Test
-    public void exception_si_creneau_inferieur_30min(){
-        LocalDateTime date = LocalDateTime.of(LocalDate.of(2020, 04, 30), LocalTime.of(14, 00));
+    public void exception_si_creneau_inferieur_60min(){
+        LocalDateTime date = LocalDateTime.of(LocalDate.of(2020, 04, 30), LocalTime.of(18, 00));
         assertThrows(CreneauException.class,
                 ()->{
                     Creneau c = new Creneau(date, 20);
                 });
 
     }
-
     @Test
     public void exception_si_date_pendant_weekend(){
-        LocalDateTime date = LocalDateTime.of(LocalDate.of(2020, 04, 26), LocalTime.of(14, 00));
+        LocalDateTime date = LocalDateTime.of(LocalDate.of(2020, 04, 26), LocalTime.of(18, 00));
         assertThrows(CreneauException.class,
                 ()->{
                     Creneau c = new Creneau(date, 40);
+                });
+    }
+
+    @Test
+    public void exception_si_avant_18_heures(){
+        LocalDateTime date = LocalDateTime.of(LocalDate.of(2020, 04, 30), LocalTime.of(14, 00));
+        assertThrows(CreneauException.class,
+                ()->{
+                    Creneau c = new Creneau(date, 60);
+                });
+    }
+
+    @Test
+    public void exception_si_fin_creneau_apres_21_heures(){
+        LocalDateTime date = LocalDateTime.of(LocalDate.of(2020, 04, 30), LocalTime.of(20, 00));
+        assertThrows(CreneauException.class,
+                ()->{
+                    Creneau c = new Creneau(date, 120);
                 });
     }
 }
