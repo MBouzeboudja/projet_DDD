@@ -4,9 +4,9 @@ public class EntretienRequest {
     private final String candidatID;
     private final String salleID;
     private final String date;
-    private final String duree;
+    private final int duree;
 
-    public EntretienRequest(String candidatID, String salleID, String date, String duree) {
+    public EntretienRequest(String candidatID, String salleID, String date, int duree) {
         this.candidatID = candidatID;
         this.salleID = salleID;
         this.date = date;
@@ -25,7 +25,7 @@ public class EntretienRequest {
         return date;
     }
 
-    public String getDuree() {
+    public int getDuree() {
         return duree;
     }
 }

@@ -2,6 +2,8 @@ package model.salle;
 
 import model.salle.exception.SalleException;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Salle {
@@ -53,5 +55,4 @@ public class Salle {
     public Localisation getLocalisation() {
         return localisation;
     }
-
 }
